@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import React from 'react';
+import { Form } from '@unform/web';
+import { Scope } from '@unform/core';
 import './App.css';
+import Input from './components/Form/input';
 
 function App() {
+  function handleSubmit(data) {
+    console.log(data);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello World</h1>
+
+      <Form onSubmit={handleSubmit}>
+        <Input name="fullName" />
+        <Input name="email" type="email" />
+        <Input name="cpf" />
+        <Scope path="address">
+          <Input name ="street" />
+          <Input name ="number" />
+          <Input name ="district" />
+          <Input name ="city" />
+          <Input name ="state" />
+        </Scope>
+
+        <button type="submit">Enviar</button>
+      </Form>
     </div>
   );
 }
