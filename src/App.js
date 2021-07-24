@@ -1,20 +1,11 @@
-import React from 'react';
-import { Form } from '@unform/web';
-import { Scope } from '@unform/core';
-import './App.css';
-import Input from './components/Form/input';
+import React from "react";
+import { Form } from "@unform/web";
+import { Scope } from "@unform/core";
+import "./App.css";
+import Input from "./components/Form/input";
 
 function App() {
   function handleSubmit(data) {
-    // localStorage.setItem('fullName', data.fullName);
-    // localStorage.setItem('email', data.email);
-    // localStorage.setItem('cpf', data.cpf);
-    // localStorage.setItem('address.street', data.address.street);
-    // localStorage.setItem('address.number', data.address.number);
-    // localStorage.setItem('address.district', data.address.district);
-    // localStorage.setItem('address.city', data.address.city);
-    // localStorage.setItem('address.state', data.address.state);
-    
     let user = {
       name: data.fullName,
       email: data.email,
@@ -24,29 +15,90 @@ function App() {
         number: data.address.number,
         district: data.address.district,
         city: data.address.city,
-        state: data.address.state
-      }
-    }
+        state: data.address.state,
+      },
+    };
     console.log(user);
-    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem("user", JSON.stringify(user));
   }
   return (
     <div className="App">
       <h1>Hello World</h1>
 
-      <Form onSubmit={handleSubmit}>
-        <Input name="fullName" />
-        <Input name="email" type="email" />
-        <Input name="cpf" />
+      <Form onSubmit={handleSubmit} className="Form-container">
+        <p className="Secondary-title">Dados Pessoais</p>
+
+        <label className="Field-container" className="Field-container">
+          <p className="Field-description">Nome completo</p>
+          <Input
+            className="Input"
+            name="fullName"
+            placeholder="Insira seu nome completo"
+          />
+        </label>
+
+        <label className="Field-container">
+          <p className="Field-description">E-mail</p>
+          <Input
+            className="Input"
+            name="email"
+            type="email"
+            placeholder="Insira seu e-mail"
+          />
+        </label>
+
+        <label className="Field-container">
+          <p className="Field-description">CPF</p>
+          <Input className="Input" name="cpf" placeholder="Insira seu CPF" />
+        </label>
+
         <Scope path="address">
-          <Input name ="street" />
-          <Input name ="number" />
-          <Input name ="district" />
-          <Input name ="city" />
-          <Input name ="state" />
+          <p className="Secondary-title">Endereço</p>
+          <label className="Field-container">
+            <p className="Field-description">Rua</p>
+            <Input className="Input" name="street" placeholder="Insira a rua" />
+          </label>
+
+          <label className="Field-container">
+            <p className="Field-description">Número</p>
+            <Input
+              className="Input"
+              name="number"
+              placeholder="Insira o número e o complemento (se houver)"
+            />
+          </label>
+
+          <label className="Field-container">
+            <p className="Field-description">Bairro</p>
+            <Input
+              className="Input"
+              name="district"
+              placeholder="Insira o bairro"
+            />
+          </label>
+
+          <label className="Field-container">
+            <p className="Field-description">Cidade</p>
+            <Input
+              className="Input"
+              name="city"
+              placeholder="Insira a cidade"
+            />
+          </label>
+
+          <label className="Field-container">
+            <p className="Field-description">Estado</p>
+            <Input
+              className="Input"
+              name="state"
+              placeholder="Insira o estado"
+            />
+          </label>
         </Scope>
 
-        <button type="submit">Enviar</button>
+        <button className="Button" type="submit">
+          Enviar
+        </button>
       </Form>
     </div>
   );
