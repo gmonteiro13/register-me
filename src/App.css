@@ -10,6 +10,54 @@
   text-align: center;
 }
 
-.Input {
+.Input,
+#price-input {
   width: 37.5rem;
+}
+
+#type-select {
+  width: 100%;
+}
+
+
+.Primary-title {
+  text-align: center;
+  font: 700 3rem 'Segoe UI', sans-serif;
+}
+
+.Secondary-title {
+  text-align: center;
+  font: 700 2rem 'Segoe UI', sans-serif;
+}
+
+.Field-description {
+  font: 400 1.25rem 'Segoe UI', sans-serif;
+}
+
+.Button {
+  cursor: pointer;
+  border: none;
+}
+
+.Links-container,
+.Buttons-container {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.Link,
+.Button {
+  border-radius: 0.2rem;
+  text-decoration: none;
+  color: #ffffff;
+  font: 400 1.25rem 'Segoe UI', sans-serif;
+  padding: 0.5rem;
+  background-color: #000000;
+}
+
+.Link:hover,
+.Button:hover {
+  background-color: #ff1519;
+  transition: 0.3s;
 }
